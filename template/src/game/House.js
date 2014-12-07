@@ -68,7 +68,7 @@ var House_Choice = cc.Sprite.extend({
     ctor: function(){
         cc.Sprite.prototype.ctor.call(this);
         this._item = [];
-        this.setPosition(45, 55);
+        this.setPosition(30, 30);
         this.setScaleX(0);
         this.setContentSize(cc.size(225, 75));
 
@@ -77,19 +77,19 @@ var House_Choice = cc.Sprite.extend({
 
     createItem: function(){
         var item1 = new cc.Sprite("tx.png", cc.rect(0, 0, 147, 203));
-        item1.setContentSize(cc.size(75, 75));
+        item1.setContentSize(cc.size(100, 100));
         item1.setScale(0.5);
         item1.setPosition(35, 35);
         this.addChild(item1);
 
         var item2 = new cc.Sprite("tx.png", cc.rect(148, 0, 147, 203));
-        item2.setContentSize(cc.size(75, 75));
+        item2.setContentSize(cc.size(100, 100));
         item2.setScale(0.5);
         item2.setPosition(105, 35);
         this.addChild(item2);
 
         var item3 = new cc.Sprite("tx.png", cc.rect(294, 0, 147, 203));
-        item3.setContentSize(cc.size(75, 75));
+        item3.setContentSize(cc.size(100, 100));
         item3.setScale(0.5);
         item3.setPosition(175, 35);
         this.addChild(item3);
@@ -117,7 +117,7 @@ var House_Event = cc.EventListener.create({
             T2 = item2.convertToNodeSpace(touch._point),
             T3 = item3.convertToNodeSpace(touch._point);
 
-        if(T1.x > 0 && T1.y > 0 && T1.x < item1._contentSize.width && T1.y < item1._contentSize.height){
+        if(T1.x > 0 && T1.y > 0 && T1.x < item1.width*1.6 && T1.y < item1.height*1.6){
             console.log("item1");
             gameData.currentHouse.figure = 1;
             house._b1.setVisible(true);
@@ -125,7 +125,7 @@ var House_Event = cc.EventListener.create({
             house._b3.setVisible(false);
             return;
         }
-        if(T2.x > 0 && T2.y > 0 && T2.x < item2._contentSize.width && T2.y < item2._contentSize.height){
+        if(T2.x > 0 && T2.y > 0 && T2.x < item2.width*1.6 && T2.y < item2.height*1.6){
             console.log("item2");
             gameData.currentHouse.figure = 2;
             house._b1.setVisible(false);
@@ -133,7 +133,7 @@ var House_Event = cc.EventListener.create({
             house._b3.setVisible(false);
             return;
         }
-        if(T3.x > 0 && T3.y > 0 && T3.x < item3._contentSize.width && T3.y < item3._contentSize.height){
+        if(T3.x > 0 && T3.y > 0 && T3.x < item3.width*1.6 && T3.y < item3.height*1.6){
             console.log("item3");
             gameData.currentHouse.figure = 3;
             house._b1.setVisible(false);

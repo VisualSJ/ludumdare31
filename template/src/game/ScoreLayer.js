@@ -34,7 +34,7 @@ var ScoreLayer = cc.Layer.extend({
 
         var tree = new cc.Sprite("tree.png");
         this.addChild(tree);
-        tree.setPosition(500, 350);
+        tree.setPosition(500, 330);
     },
 
     setBloods: function(bloods){
